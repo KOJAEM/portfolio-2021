@@ -407,9 +407,11 @@ p {
 .testimonial {
   display: flex;
   margin: 32px 0;
+  justify-content: center;
 }
 
 .testimonial__avatar {
+  width: 150px;
   height: 150px;
   border-radius: 50%;
 }
