@@ -171,56 +171,59 @@
     </section>
     <!-- Work -->
     <section id="work" class="section">
-      <h1>My work</h1>
-      <h3>Projects</h3>
-      <div class="work__categories">
-        <!-- 수정예정 (프로젝트 나눈 내용, count 수) -->
-        <button class="category__btn active">
-          All<span class="category__count">8</span>
-        </button>
-        <button class="category__btn">
-          Front-end<span class="category__count">3</span>
-        </button>
-        <button class="category__btn">
-          Back-end<span class="category__count">3</span>
-        </button>
-        <button class="category__btn">
-          Mobile<span class="category__count">2</span>
-        </button>
-      </div>
-
-      <div class="work__projects">
-        <!-- 프로젝트 깃주소, data-type 뭐로할지 수정 (front-end 등) -->
-        <a href="" class="project" target="_blank" data-type="front-end">
-          <!-- 프로젝트는 나중에 가져와서 수정하기. -->
-          <img
-            src="imgs/projects/project1.png"
-            alt="Youtube"
-            class="project__img"
-          />
-          <div class="project__description">
-            <h3>Youtube Site</h3>
-            <span>Clone coding with HTML and CSS</span>
-          </div>
-        </a>
-
-        <a href="" class="project" target="_blank" data-type="OpenCV">
-          <!-- 프로젝트는 나중에 가져와서 수정하기. -->
-          <img
-            src="imgs/projects/omr_project.JPG"
-            alt="OMR_Project"
-            class="project__img"
-          />
-          <div class="project__description">
-            <h3>OMR 카드 인식</h3>
-            <span>OpenCV를 이용한 이미지 인식</span>
-          </div>
-        </a>
+      <div class="section__container">
+        <h1>My work</h1>
+        <h3>Projects</h3>
+        <div class="work__categories">
+          <!-- 수정예정 (프로젝트 나눈 내용, count 수) -->
+          <button class="category__btn active">
+            All<span class="category__count">8</span>
+          </button>
+          <button class="category__btn">
+            Front-end<span class="category__count">3</span>
+          </button>
+          <button class="category__btn">
+            Back-end<span class="category__count">3</span>
+          </button>
+          <button class="category__btn">
+            Mobile<span class="category__count">2</span>
+          </button>
+        </div>
+  
+        <div class="work__projects">
+          <!-- 프로젝트 깃주소, data-type 뭐로할지 수정 (front-end 등) -->
+          <a href="" class="project" target="_blank" data-type="front-end">
+            <!-- 프로젝트는 나중에 가져와서 수정하기. -->
+            <img
+              src="imgs/projects/project1.png"
+              alt="Youtube"
+              class="project__img"
+            />
+            <div class="project__description">
+              <h3>Youtube Site</h3>
+              <span>Clone coding with HTML and CSS</span>
+            </div>
+          </a>
+  
+          <a href="" class="project" target="_blank" data-type="OpenCV">
+            <!-- 프로젝트는 나중에 가져와서 수정하기. -->
+            <img
+              src="imgs/projects/omr_project.JPG"
+              alt="OMR_Project"
+              class="project__img"
+            />
+            <div class="project__description">
+              <h3>OMR 카드 인식</h3>
+              <span>OpenCV를 이용한 이미지 인식</span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
     <!-- Testimonials -->
     <section id="testimonials" class="section">
-      <h1>Testimonials</h1>
+      <div class="section__container">
+        <h1>Testimonials</h1>
       <h3>See what they say about me</h3>
       <div class="testimonials">
         <div class="testimonial">
@@ -246,6 +249,7 @@
             class="testimonial__avatar"
           />
         </div>
+      </div>
       </div>
     </section>
     <!-- Contact -->
