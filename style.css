@@ -15,6 +15,7 @@
   --color-orange: #feb546;
   --color-black: #000000;
   --color-navbar-aqua: #99e2de;
+  --color-navbar-dark-aqua: #8adeec;
   --color-dark-aqua: #72c4bf;
 
   /* Font size */
@@ -99,12 +100,20 @@ p {
 
 /* Navbar */
 #navbar {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-navbar-aqua);
+  background-color: transparent;
   align-items: center;
   color: var(--color-white);
   padding: 8px;
+  transition: all var(--animation-duration) ease-in-out;
+}
+
+#navbar.navbar--dark {
+  background-color: var(--color-navbar-dark-aqua);
+  padding: 4px;
 }
 
 .navbar__menu {
@@ -151,6 +160,7 @@ p {
 #home {
   background: url("imgs/home-background.png") center/cover no-repeat;
   padding: 40px;
+  padding-top: 120px;
   text-align: center;
 }
 
