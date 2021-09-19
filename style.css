@@ -114,6 +114,7 @@ p {
 #navbar.navbar--dark {
   background-color: var(--color-navbar-dark-aqua);
   padding: 4px;
+  z-index: 1; /* 가장 위에 있게 */
 }
 
 .navbar__menu {
