@@ -16,13 +16,21 @@ const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event) => {
     const target = event.target;
     const link = target.dataset.link;
-    if(link == null) { // ul 을 클릭한 경우엔 아무것도 하지않고 종료
-        return;
+    if(link == null) {
+        return; // ul을 클릭한 경우엔 아무것도 하지 않고 종료
     }
-    console.log(event.target.dataset.link);
-    const scrollTo = document.querySelector(link);
-    scrollTo.scrollIntoView({behavior: "smooth"});
-    
-
-
+    scrollIntoView(link);
 })
+
+// handle click on "contact me" button on home
+const contactMe = document.querySelector('.home__contact');
+contactMe.addEventListener('click', () => {
+    scrollIntoView('#contact');
+})
+
+
+// scrollMove Event
+function scrollIntoView(selector) {
+    const scrollTo = document.querySelector(selector);
+    scrollTo.scrollIntoView({behavior: "smooth"});
+}
