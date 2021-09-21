@@ -2,6 +2,7 @@
 
 :root {
   /* Color */
+  --color-navbar-font: #131268;
   --color-white: #ffffff;
   --color-light-white: #eeeeee;
   --color-dark-white: #bdbdbd;
@@ -106,7 +107,7 @@ p {
   justify-content: space-between;
   background-color: transparent;
   align-items: center;
-  color: var(--color-white);
+  color: var(--color-navbar-font);
   padding: 8px;
   transition: all var(--animation-duration) ease-in-out;
 }
@@ -131,6 +132,7 @@ p {
 }
 .navbar__logo .name {
   margin-left: 10px;
+  color: var(--color-navbar-font);
 }
 
 .navbar__menu__item {
