@@ -7,7 +7,6 @@
   --color-light-white: #eeeeee;
   --color-dark-white: #bdbdbd;
   --color-pink: #fe918d;
-  --color-dark-pink: #ff6863;
   --color-dark-grey: #4d4d4d;
   --color-grey: #616161;
   --color-light-grey: #7c7979;
@@ -15,9 +14,9 @@
   --color-yellow: #fff7d1;
   --color-orange: #feb546;
   --color-black: #000000;
-  --color-navbar-aqua: #99e2de;
-  --color-navbar-dark-aqua: #8adeec;
-  --color-dark-aqua: #72c4bf;
+  --color-navbar-scroll-aqua: #8adeec;
+  --color-navbar-hover-aqua: #72c4bf;
+  --color-arrow-up: #033cd8;
 
   /* Font size */
   --font-large: 48px;
@@ -113,7 +112,7 @@ p {
 }
 
 #navbar.navbar--dark {
-  background-color: var(--color-navbar-dark-aqua);
+  background-color: var(--color-navbar-scroll-aqua);
   padding: 4px;
   z-index: 1; /* 가장 위에 있게 */
 }
@@ -147,7 +146,7 @@ p {
 }
 
 .navbar__menu__item:hover {
-  background-color: var(--color-dark-aqua);
+  background-color: var(--color-navbar-hover-aqua);
 }
 
 .navbar__toggle-btn {
@@ -494,6 +493,28 @@ p {
   color: var(--color-yellow);
 }
 
+/* Scroll */
+.arrow-up {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 70px;
+  height: 70px;
+  font-size: 50px;
+  color: var(--color-white);
+  background-color: var(--color-arrow-up);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none; /* 클릭 이벤트를 없앰 */
+  transition: all var(--animation-duration) ease-in;
+}
+
+.arrow-up.visible {
+  opacity: 1;
+  pointer-events: auto; /* 클릭 이벤트를 사용할 수 있게 해줌 */
+}
+
+/* For below 768px screen width */
 @media screen and (max-width: 768px) {
   .navbar__toggle-btn {
     display: block;
