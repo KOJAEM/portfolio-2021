@@ -66,6 +66,17 @@ workBtnContainer.addEventListener('click', (e) => {
     return;
   }
 
+  // Remove selection from the previous item and select the new one
+  const active = document.querySelector('.category__btn.selected');
+  active.classList.remove('selected');
+  const target = e.target.nodeName === 'BUTTON' ? e.target : 
+                 e.target.parentNode;
+                  // Span 이 눌렸을때의 상황까지 고려한 코드 (Css 코드에서 내가 하던대로 하면 이 코드가 필요없긴 하지만, 공부용이므로 이 버전으로 둘 예정.)
+
+
+  target.classList.add('selected');
+
+
   projectContainer.classList.add('anim-out');
   
   setTimeout(() => {

@@ -332,7 +332,7 @@ p {
    원하는 클릭 이벤트가 작동하지 않으므로 이 코드를 추가하여
    원하는 클릭이 일어나게 할 수 있음. (강의에서는 다른 방법을 사용함.)
    모르는 내용이였으니 그 방법으로 다시 공부했음. */
-/* .work__categories span { 
+/* .work__categories span {
   pointer-events: none;
 } */
 
@@ -343,13 +343,13 @@ p {
   padding: 8px 48px;
 }
 
-.category__btn.active,
+.category__btn.selected,
 .category__btn:hover {
   background-color: var(--color-pink);
   color: var(--color-white);
 }
 
-.category__btn.active .category__count,
+.category__btn.selected .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
   top: 0;
