@@ -11,6 +11,7 @@ document.addEventListener("scroll", () => {
   }
 });
 
+
 // handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener("click", (event) => {
@@ -19,8 +20,19 @@ navbarMenu.addEventListener("click", (event) => {
   if (link == null) {
     return; // ul을 클릭한 경우엔 아무것도 하지 않고 종료
   }
+  navbarMenu.classList.remove('open'); // 화면이 작아졌을때 메뉴바에서 메뉴를 클릭하게 되면, 메뉴바를 닫음.
   scrollIntoView(link);
 });
+
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
+})
+
+
+
 
 // handle click on "contact me" button on home
 const contactMe = document.querySelector(".home__contact");
