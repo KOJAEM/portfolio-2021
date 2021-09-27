@@ -346,6 +346,7 @@ p {
   border-radius: var(--size-border-radius);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  position: relative;
 }
 
 .category__btn.selected,
@@ -357,7 +358,7 @@ p {
 .category__btn.selected .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
-  top: 0;
+  top: 6px;
 }
 .category__count {
   background-color: var(--color-orange);
@@ -367,9 +368,9 @@ p {
   height: 24px;
   line-height: 24px;
   display: inline-block;
-  position: relative;
+  position: absolute;
   top: -20px;
-  left: 4px;
+  right: 16px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
 }
@@ -570,6 +571,7 @@ p {
 
   .section {
     padding: 16px;
+    padding-top: 100px;
   }
 
   .about__majors {
@@ -592,12 +594,41 @@ p {
     flex-direction: column;
   }
 
+  .category__btn {
+    width: 100%;
+    margin: 4px 0;
+  }
+
   .project {
     flex-grow: 1;
   }
 
   .testimonial__avatar {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
+  }
+  .testimonial__avatar:nth-child(even),
+  .testimonial__avatar:nth-child(odd) {
+    margin: 0;
+    margin-bottom: 8px;
+  }
+
+  .testimonial__speechBubble {
+    order: 1; /* speechBubble 의 order 값을 1로 하여
+                 avatar 보다 뒤로 오게함. 기본값은 0 */
+  }
+
+  .testimonial {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .arrow-up {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    line-height: 50px;
+    right: 16px;
+    bottom: 16px;
   }
 }
