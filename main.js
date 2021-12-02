@@ -11,7 +11,6 @@ document.addEventListener("scroll", () => {
   }
 });
 
-
 // handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener("click", (event) => {
@@ -20,24 +19,20 @@ navbarMenu.addEventListener("click", (event) => {
   if (link == null) {
     return; // ul을 클릭한 경우엔 아무것도 하지 않고 종료
   }
-  navbarMenu.classList.remove('open'); // 화면이 작아졌을때 메뉴바에서 메뉴를 클릭하게 되면, 메뉴바를 닫음.
-  scrollIntoView(link);
+  navbarMenu.classList.remove("open"); // 화면이 작아졌을때 메뉴바에서 메뉴를 클릭하게 되면, 메뉴바를 닫음.
+  scrolling(link);
 });
 
-
 // Navbar toggle button for small screen
-const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
-navbarToggleBtn.addEventListener('click', () => {
-  navbarMenu.classList.toggle('open');
-})
-
-
-
+const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
+navbarToggleBtn.addEventListener("click", () => {
+  navbarMenu.classList.toggle("open");
+});
 
 // handle click on "contact me" button on home
 const contactMe = document.querySelector(".home__contact");
 contactMe.addEventListener("click", () => {
-  scrollIntoView("#contact");
+  scrolling("#contact");
 });
 
 // Make home slowly fade to transparent as the window scrolls down
@@ -53,59 +48,118 @@ document.addEventListener("scroll", () => {
 // Show "arrow up" button when scrolling down
 const arrowUp = document.querySelector(".arrow-up");
 document.addEventListener("scroll", () => {
-    if(window.scrollY > homeHeight /2) {
-        arrowUp.classList.add('visible');
-    } else {
-        arrowUp.classList.remove('visible');
-    }
+  if (window.scrollY > homeHeight / 2) {
+    arrowUp.classList.add("visible");
+  } else {
+    arrowUp.classList.remove("visible");
+  }
 });
 
 // Handle click on the "arrow up" button
-arrowUp.addEventListener('click', () => {
-    scrollIntoView('#home');
-})
+arrowUp.addEventListener("click", () => {
+  scrolling("#home");
+});
 
 // Projects
-const workBtnContainer = document.querySelector('.work__categories');
-const projectContainer = document.querySelector('.work__projects');
-const projects = document.querySelectorAll('.project');
-workBtnContainer.addEventListener('click', (e) => {
-  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter; 
-          // 코드해석 : e.target.dataset.filter 가 없으면
-          // (이 상황에선 숫자 span 을 누른 상황이면)
-          // 그 부모 노드의 dataset의 filter 를 가져오는것.
-  if(filter == null) {
+const workBtnContainer = document.querySelector(".work__categories");
+const projectContainer = document.querySelector(".work__projects");
+const projects = document.querySelectorAll(".project");
+workBtnContainer.addEventListener("click", (e) => {
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  // 코드해석 : e.target.dataset.filter 가 없으면
+  // (이 상황에선 숫자 span 을 누른 상황이면)
+  // 그 부모 노드의 dataset의 filter 를 가져오는것.
+  if (filter == null) {
     return;
   }
 
   // Remove selection from the previous item and select the new one
-  const active = document.querySelector('.category__btn.selected');
-  active.classList.remove('selected');
-  const target = e.target.nodeName === 'BUTTON' ? e.target : 
-                 e.target.parentNode;
-                  // Span 이 눌렸을때의 상황까지 고려한 코드 (Css 코드에서 내가 하던대로 하면 이 코드가 필요없긴 하지만, 공부용이므로 이 버전으로 둘 예정.)
+  const active = document.querySelector(".category__btn.selected");
+  active.classList.remove("selected");
+  const target =
+    e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
+  // Span 이 눌렸을때의 상황까지 고려한 코드 (Css 코드에서 내가 하던대로 하면 이 코드가 필요없긴 하지만, 공부용이므로 이 버전으로 둘 예정.)
 
+  target.classList.add("selected");
 
-  target.classList.add('selected');
+  projectContainer.classList.add("anim-out");
 
-
-  projectContainer.classList.add('anim-out');
-  
   setTimeout(() => {
     projects.forEach((project) => {
-      if(filter === '*' || filter === project.dataset.type) {
-        project.classList.remove('invisible');
+      if (filter === "*" || filter === project.dataset.type) {
+        project.classList.remove("invisible");
       } else {
-        project.classList.add('invisible');
+        project.classList.add("invisible");
       }
-    })
-    projectContainer.classList.remove('anim-out');
-  }, 300)
+    });
+    projectContainer.classList.remove("anim-out");
+  }, 300);
 });
 
 
 
-function scrollIntoView(selector) {
+// 1. 모든 섹션 요소들과 메뉴아이템들을 가지고 온다
+// 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
+// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다.
+
+const sectionIds = [
+  "#home",
+  "#about",
+  "#skills",
+  "#work",
+  "#testimonials",
+  "#contact",
+];
+
+const sections = sectionIds.map(id => document.querySelector(id));
+const navItems = sectionIds.map(id => document.querySelector(`[data-link="${id}"]`));
+// console.log(sections);
+// console.log(navItems);
+
+let selectedNavItem = navItems[0];
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove('active');
+  selectedNavItem = selected;
+  selectedNavItem.classList.add('active');
+}
+
+function scrolling(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: "smooth" });
+  selectNavItem(navItems[sectionIds.indexOf(selector)]);
 }
+
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.3,
+};
+
+
+let selectedNavIndex = 0;
+const observerCallback = (entries, observer) => {
+  entries.forEach(entry => {
+    if(!entry.isIntersecting && entry.intersectionRatio > 0) {
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
+      // 스크롤링이 아래로 되어서 페이지가 올라옴
+      if(entry.boundingClientRect.y < 0) {
+        selectedNavIndex = index + 1;
+      } else {
+        selectedNavIndex = index - 1;
+      }
+    }
+  })
+};
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+sections.forEach(section => observer.observe(section));
+
+window.addEventListener('wheel', () => {
+  if(window.scrollY === 0) {
+    selectedNavIndex = 0;
+  } else if (Math.round(window.scrollY + window.innerHeight) === document.body.clientHeight) {
+    selectedNavIndex = navItems.length - 1;
+  }
+  selectNavItem(navItems[selectedNavIndex]);
+})
