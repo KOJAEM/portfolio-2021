@@ -50,15 +50,15 @@
     <section id="home">
       <div class="home__container">
         <img
-        src="imgs/profile.jpg"
-        alt="JaeMin's profile photo"
-        class="home__avatar"
-      />
-      <h1 class="home__title">Hello, <br />Welcome to my portfolio.</h1>
-      <h2 class="home__description">
-        저는 프론트엔드 개발자가 되기 위해 공부중인 학생입니다.
-      </h2>
-      <button class="home__contact">CONTACT ME</button>
+          src="imgs/profile.jpg"
+          alt="JaeMin's profile photo"
+          class="home__avatar"
+        />
+        <h1 class="home__title">Hello, <br />Welcome to my portfolio.</h1>
+        <h2 class="home__description">
+          저는 프론트엔드 개발자가 되기 위해 공부중인 학생입니다.
+        </h2>
+        <button class="home__contact">CONTACT ME</button>
       </div>
     </section>
 
@@ -70,8 +70,9 @@
         흥미가 많습니다.<br />
         현재는 특히 프론트엔드 개발에 관심이 많이 생겼고, 리액트를 공부중입니다.
         <br />
-        팀 프로젝트로는 OpenCV 라이브러리를 이용한 OMR카드 인식 프로젝트를
-        한적이 있습니다.
+        팀 프로젝트로는 OpenCV 라이브러리를 이용한 OMR카드 인식 프로젝트와
+        <br />
+        React 를 사용한 인터렉티브 웹 프로젝트를 한적이 있습니다.
       </p>
       <div class="about__majors">
         <div class="major">
@@ -79,7 +80,7 @@
             <i class="fab fa-html5"></i>
           </div>
           <h2 class="major__title">HTML</h2>
-          <div class="major__description">(나중에 수정할 내용)</div>
+          <div class="major__description">현재 공부중입니다.</div>
         </div>
 
         <div class="major">
@@ -87,7 +88,7 @@
             <i class="fab fa-css3"></i>
           </div>
           <h2 class="major__title">CSS</h2>
-          <div class="major__description">(나중에 수정할 내용)</div>
+          <div class="major__description">현재 공부중입니다.</div>
         </div>
 
         <div class="major">
@@ -95,7 +96,7 @@
             <i class="fab fa-js"></i>
           </div>
           <h2 class="major__title">JavaScript</h2>
-          <div class="major__description">(나중에 수정할 내용)</div>
+          <div class="major__description">현재 공부중입니다.</div>
         </div>
       </div>
       <div class="about__school">
@@ -183,22 +184,21 @@
         <div class="work__categories">
           <!-- 수정예정 (프로젝트 나눈 내용, count 수) -->
           <button class="category__btn selected" data-filter="*">
-            All<span class="category__count">2</span>
+            All<span class="category__count">6</span>
           </button>
           <button class="category__btn" data-filter="front-end">
-            Front-end<span class="category__count">1</span>
+            Front-end<span class="category__count">5</span>
           </button>
           <button class="category__btn" data-filter="OpenCV">
             OpenCV<span class="category__count">1</span>
           </button>
         </div>
-  
+
         <div class="work__projects">
           <!-- 프로젝트 깃주소, data-type 뭐로할지 수정 (front-end 등) -->
           <a href="" class="project" target="_blank" data-type="front-end">
-            <!-- 프로젝트는 나중에 가져와서 수정하기. -->
             <img
-              src="imgs/projects/project1.png"
+              src="imgs/projects/youtube_project.png"
               alt="Youtube"
               class="project__img"
             />
@@ -207,9 +207,13 @@
               <span>Clone coding with HTML and CSS</span>
             </div>
           </a>
-  
-          <a href="" class="project" target="_blank" data-type="OpenCV">
-            <!-- 프로젝트는 나중에 가져와서 수정하기. -->
+
+          <a
+            href="https://github.com/minho0315/OpenCV/tree/JaeMin"
+            class="project"
+            target="_blank"
+            data-type="OpenCV"
+          >
             <img
               src="imgs/projects/omr_project.JPG"
               alt="OMR_Project"
@@ -220,6 +224,54 @@
               <span>OpenCV를 이용한 이미지 인식</span>
             </div>
           </a>
+
+          <a href="" class="project" target="_blank" data-type="front-end">
+            <img
+              src="imgs/projects/navbar_project.jpg"
+              alt="Youtube"
+              class="project__img"
+            />
+            <div class="project__description">
+              <h3>반응형 헤더</h3>
+              <span>크기에 맞게 조절되는 navbar</span>
+            </div>
+          </a>
+
+          <a href="" class="project" target="_blank" data-type="front-end">
+            <img
+              src="imgs/projects/shopping_project.png"
+              alt="Youtube"
+              class="project__img"
+            />
+            <div class="project__description">
+              <h3>미니게임 쇼핑몰</h3>
+              <span>데이터를 필터해서 출력함</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/KOJAEM/Basic-Web-Programming" class="project" target="_blank" data-type="front-end">
+            <img
+              src="imgs/projects/bmi_project.JPG"
+              alt="Youtube"
+              class="project__img"
+            />
+            <div class="project__description">
+              <h3>다이어트를 위한 웹 사이트</h3>
+              <span>기본적인 개념을 사용하여 만든 다이어트 웹</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/KOJAEM/jolp-exhibition-fashion" class="project" target="_blank" data-type="front-end">
+            <img
+              src="imgs/projects/fashion_project.JPG"
+              alt="Youtube"
+              class="project__img"
+            />
+            <div class="project__description">
+              <h3>패션 전시회</h3>
+              <span>react 를 사용하여 만든 인터렉티브 웹</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -227,32 +279,32 @@
     <section id="testimonials" class="section">
       <div class="section__container">
         <h1>Testimonials</h1>
-      <h3>See what they say about me</h3>
-      <div class="testimonials">
-        <div class="testimonial">
-          <img
-            src="imgs/testimonial/people1.jpg"
-            alt="People"
-            class="testimonial__avatar"
-          />
-          <div class="testimonial__speechBubble">
-            <p>수정해야할 내용 (말한 내용들)<br /></p>
-            <p class="name"><a href="">누구</a> / 소속</p>
+        <h3>See what they say about me</h3>
+        <div class="testimonials">
+          <div class="testimonial">
+            <img
+              src="imgs/testimonial/people1.jpg"
+              alt="People"
+              class="testimonial__avatar"
+            />
+            <div class="testimonial__speechBubble">
+              <p>수정해야할 내용 (말한 내용들)<br /></p>
+              <p class="name"><a href="">누구</a> / 소속</p>
+            </div>
           </div>
-        </div>
-        <div class="testimonial">
-          <div class="testimonial__speechBubble">
-            <p>수정해야할 내용 (말한 내용들)<br /></p>
-            <p class="name"><a href="">누구</a> / 소속</p>
-          </div>
+          <div class="testimonial">
+            <div class="testimonial__speechBubble">
+              <p>수정해야할 내용 (말한 내용들)<br /></p>
+              <p class="name"><a href="">누구</a> / 소속</p>
+            </div>
 
-          <img
-            src="imgs/testimonial/people1.jpg"
-            alt="People"
-            class="testimonial__avatar"
-          />
+            <img
+              src="imgs/testimonial/people1.jpg"
+              alt="People"
+              class="testimonial__avatar"
+            />
+          </div>
         </div>
-      </div>
       </div>
     </section>
     <!-- Contact -->
